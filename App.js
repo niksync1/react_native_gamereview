@@ -6,21 +6,13 @@ import Navigator from './routes/homeStack.';
 import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
 
-
-// const getFonts = () => Font.loadAsync({
-//     'nunito-regular': require('./assets/fonts/NunitoSans-Regular.ttf'),
-//     'nunito-bold' : require('./assets/fonts/NunitoSans-Bold.ttf')
-//   });
-
- 
-
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [fontsLoader] = useFonts({
     'nunito-regular': require('./assets/fonts/NunitoSans-Regular.ttf'),
     'nunito-bold' : require('./assets/fonts/NunitoSans-Bold.ttf')
   });
-  
+
   if(fontsLoaded){
     return (
       <Navigator />
