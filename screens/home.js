@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import {Button, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default function Home({navigation}) {
 
     const pressHandler =()=>{
-        navigation.navigate('ReviewDetails');
-        // navigation.push('ReviewDetails');
+        // navigation.navigate('ReviewDetails');
+        navigation.push('ReviewDetails');
     }
     return (
         <View style={globalStyles.container}>

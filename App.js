@@ -3,15 +3,24 @@ import Home from './screens/home';
 import * as Font from './screens/home';
 import  AppLoading  from 'expo-app-loading';
 import Navigator from './routes/homeStack.';
+import { useCallback } from 'react';
+import { useFonts } from 'expo-font';
 
-const getFonts = () => Font.loadAsync({
-    'nunito-regular': require('./assets/fonts/NunitoSans-Regular.ttf'),
-    'nunito-bold' : require('./assets/fonts/NunitoSans-Bold.ttf')
-  });
+
+// const getFonts = () => Font.loadAsync({
+//     'nunito-regular': require('./assets/fonts/NunitoSans-Regular.ttf'),
+//     'nunito-bold' : require('./assets/fonts/NunitoSans-Bold.ttf')
+//   });
+
+ 
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-
+  const [fontsLoader] = useFonts({
+    'nunito-regular': require('./assets/fonts/NunitoSans-Regular.ttf'),
+    'nunito-bold' : require('./assets/fonts/NunitoSans-Bold.ttf')
+  });
+  
   if(fontsLoaded){
     return (
       <Navigator />
@@ -19,8 +28,9 @@ export default function App() {
   }else { 
     return(
       <AppLoading
-      startAsync={getFonts}
+      startAsync={fontsLoader}
       onFinish={()=> setFontsLoaded(true)}
+      onError={(err) => console.log(err)}
     />
     )
   }  
