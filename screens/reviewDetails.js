@@ -4,10 +4,6 @@ import { globalStyles } from '../styles/global';
 
 export default function ReviewDetails({ navigation }) {
 
-    // const pressHandler =()=>{
-    //     navigation.goBack();
-    //     // navigation.push('ReviewDetails');
-    // }
     return (
         <View style={globalStyles.container}>
             <Text>{navigation.getParam('title')}</Text>

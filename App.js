@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import Home from './screens/home';
 import * as Font from './screens/home';
 import  AppLoading  from 'expo-app-loading';
-import Navigator from './routes/homeStack.';
+import StackApp from './routes/drawer';
 import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
 
@@ -15,7 +15,7 @@ export default function App() {
 
   if(fontsLoaded){
     return (
-      <Navigator />
+      <StackApp />
     );
   }else { 
     return(
